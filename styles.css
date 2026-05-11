@@ -1,0 +1,269 @@
+:root {
+  --orange-500: hsl(25, 97%, 53%);
+  --white: hsl(0, 100%, 100%);
+  --grey-500: hsl(217, 12%, 63%);
+  --grey-900: hsl(213, 19%, 18%);
+  --grey-950: hsl(216, 12%, 8%);
+  --card-gradient-start: hsl(215, 20%, 17%);
+  --card-gradient-end: hsl(215, 27%, 12%);
+  --circle-bg: hsl(213, 19%, 21%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Overpass", Arial, sans-serif;
+  font-size: 0.9375rem;
+  background: var(--grey-950);
+  color: var(--white);
+}
+
+button,
+input,
+label {
+  font: inherit;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.card {
+  width: min(100%, 25.75rem);
+  min-height: 25.9375rem;
+  border-radius: 1.875rem;
+  background: radial-gradient(circle at top, var(--card-gradient-start), var(--card-gradient-end));
+  box-shadow: 0 1.5rem 3rem hsl(0 0% 0% / 0.18);
+}
+
+.rating-card {
+  padding: 2rem 2.4375rem 2rem 2rem;
+}
+
+.icon-wrapper {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--circle-bg);
+  margin-bottom: 1.875rem;
+}
+
+.icon-wrapper img {
+  width: 1rem;
+  height: 1rem;
+}
+
+h1,
+h2,
+p,
+fieldset {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.rating-card p,
+.thank-you-card > p:not(.selection-message) {
+  color: var(--grey-500);
+  line-height: 1.6;
+}
+
+.rating-card > p {
+  margin-top: 0.625rem;
+}
+
+.rating-form {
+  margin-top: 1.5rem;
+}
+
+.rating-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.rating-options input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.rating-options label {
+  width: 3.1875rem;
+  height: 3.1875rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--circle-bg);
+  color: var(--grey-500);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.rating-options label:hover,
+.rating-options input:focus-visible + label {
+  background: var(--orange-500);
+  color: var(--grey-950);
+}
+
+.rating-options input:checked + label {
+  background: var(--white);
+  color: var(--grey-950);
+}
+
+.rating-options label:active {
+  transform: scale(0.96);
+}
+
+.form-message {
+  min-height: 1.25rem;
+  margin-top: 0.5rem;
+  color: var(--orange-500);
+  text-align: center;
+  font-size: 0.8125rem;
+}
+
+button {
+  width: 100%;
+  min-height: 2.8125rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--orange-500);
+  color: var(--grey-950);
+  text-transform: uppercase;
+  letter-spacing: 0.1875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  background: var(--white);
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+.thank-you-card {
+  padding: 2.8125rem 2.25rem 2.8125rem;
+  text-align: center;
+}
+
+.thank-you-image {
+  display: block;
+  width: 10.125rem;
+  height: auto;
+  margin: 0 auto 2rem;
+}
+
+.selection-message {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto 2rem;
+  padding: 0.4375rem 1.25rem 0.3125rem;
+  border-radius: 999px;
+  background: var(--circle-bg);
+  color: var(--orange-500);
+  line-height: 1.2;
+}
+
+.thank-you-card h2 {
+  margin-bottom: 0.625rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 32rem) {
+  .page-shell {
+    padding: 1.5rem;
+  }
+
+  .card {
+    min-height: 22.5rem;
+    border-radius: 1rem;
+  }
+
+  .rating-card {
+    padding: 1.5rem 1.5rem 2rem;
+  }
+
+  .icon-wrapper {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .rating-form {
+    margin-top: 1.625rem;
+  }
+
+  .rating-options {
+    gap: 0.625rem;
+  }
+
+  .rating-options label {
+    width: clamp(2.625rem, 12vw, 3.1875rem);
+    height: clamp(2.625rem, 12vw, 3.1875rem);
+  }
+
+  .thank-you-card {
+    padding: 2.125rem 1.5rem 2.3125rem;
+  }
+
+  .thank-you-image {
+    width: 9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .selection-message {
+    margin-bottom: 1.75rem;
+    padding-inline: 0.875rem;
+  }
+}
